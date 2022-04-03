@@ -13,6 +13,6 @@
 ### Scripts description
 | Name | Description |
 | --- | --- |
-| Gamma |---- |
+| gammaCorrector.py | Improve the brightness of the image |
 
 
