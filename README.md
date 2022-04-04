@@ -1,5 +1,6 @@
 # Content
 - [Shortcuts Opencv](#Shortcuts-opencv)
+- [Labels format](#Labels-format)
 - [Scripts description](#Scripts-description)
 
 ### Shortcuts Opencv
@@ -11,6 +12,17 @@
 | `img = cv2.rectangle(img, rect_start, rect_end, color=(0,0, 255), thickness=2)` | draw rectangle |
 | ` img_rotated = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)` | rotate image counterclockwise |
 |`  img_rotated = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)` | rotate image clockwise |
+
+
+### Labels format
+| Format | Dataset | Description | Normalized (divide by height and width) |
+| --- | --- | --- |
+| pascal_voc |  Pascal VOC dataset | [x_min, y_min, x_max, y_max] | No |
+| albumentations | ---| [x_min, y_min, x_max, y_max] | Yes |
+| coco | coco | [x_min, y_min, width, height] | No |
+| yolo | --- | [x_center, y_center, width, height] | Yes | 
+
+
 
 ### Scripts description
 | Name | Description |
