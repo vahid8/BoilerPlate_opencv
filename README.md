@@ -16,7 +16,7 @@
 
 ### Labels format
 | Format | Dataset | Description | Normalized (divide by height and width) |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | pascal_voc |  Pascal VOC dataset | [x_min, y_min, x_max, y_max] | No |
 | albumentations | ---| [x_min, y_min, x_max, y_max] | Yes |
 | coco | coco | [x_min, y_min, width, height] | No |
