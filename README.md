@@ -13,6 +13,12 @@
 | ` img_rotated = cv2.rotate(img, cv2.ROTATE_90_COUNTERCLOCKWISE)` | rotate image counterclockwise |
 |`  img_rotated = cv2.rotate(img, cv2.ROTATE_90_CLOCKWISE)` | rotate image clockwise |
 
+Add text to the image
+```
+sample = cv2.putText(img=sample, text=str(label), org=(int(box[0]), int(box[1])),
+                                 fontFace=cv2.FONT_HERSHEY_DUPLEX, fontScale=2.0,
+                                 color=(125,246,55), thickness=1, lineType=cv2.LINE_AA)
+```
 
 ### Labels format
 | Format | Dataset | Description | Normalized (divide by height and width) |
