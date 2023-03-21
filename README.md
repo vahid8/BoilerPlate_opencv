@@ -2,6 +2,7 @@
 - [Shortcuts Opencv](#Shortcuts-opencv)
 - [Labels format](#Labels-format)
 - [Scripts description](#Scripts-description)
+- [ONNX format] (#ONNX-format)
 
 ### Shortcuts Opencv
 | Command | Description |
@@ -36,4 +37,17 @@ sample = cv2.putText(img=sample, text=str(label), org=(int(box[0]), int(box[1]))
 | gammaCorrector.py | Improve the brightness of the image |
 | CameraCalibrationCPP | camera calibration  in c++ |
 
+### ONNX format
+1 install onnx
+```
+pip install onnx
+```
+1- convert model to onnx
+```
+python3 deploy/ONNX/export_onnx.py --weights ../latest_trained_models/yolov6l.pt --img 1280 --batch 1 --simplify --iou-thres 0.45 --conf-thres 0.25 --device cpu
+```
+or 
+```
+python3 deploy/ONNX/export_onnx.py --weights ../latest_trained_models/yolov6l.pt --img 1280 --batch 1 --simplify --iou-thres 0.45 --conf-thres 0.25 --device 0
+```
 
