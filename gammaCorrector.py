@@ -2,10 +2,11 @@
 """ Evaluate the brightness and contrast and
     improve it
 """
-
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 import cv2
+import tqdm
 
 
 
@@ -38,13 +39,17 @@ def adjust_gamma(image, gamma=1.0):
 
 
 if __name__ == '__main__':
-    img = cv2.imread('3.jpg')
-    mean = plot_histogram(img,show=True)
-    gamma_value = round((100-int(mean))/10, 1)
-    print(gamma_value)
-    if gamma_value>2.5: # we dont want to make the image brighter than this
-        gamma_value = 2.5
+    input_dir = "camera 1"
+    output_dir = "det"
+    images = [item for item in os.listdir(input_dir) if item.endswith(".jpg")]
+    for item in tqdm.tqdm(images):
+        img = cv2.imread(os.path.join(input_dir, item))
+        mean = plot_histogram(img)
+        gamma_value = round((100-int(mean))/10, 1)
+    
+        if gamma_value>2.2: # we dont want to make the image brighter than this
+            gamma_value = 2.2
 
-    if gamma_value > 1.0: # in the current project we only have dark images to be brighter. needs to be changed for specific projects
-        new_image = adjust_gamma(img, gamma_value)
-        cv2.imwrite("result.jpg", new_image)
+        if gamma_value > 1.0: # in the current project we only have dark images to be brighter. needs to be changed for specific projects
+            new_image = adjust_gamma(img, gamma_value)
+            cv2.imwrite(os.path.join(output_dir, item), new_image)
